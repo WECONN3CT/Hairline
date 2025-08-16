@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt & Terminbuchung - Hairline Hair Restoration</title>
+    <meta name="description" content="Vereinbaren Sie Ihre kostenlose Erstberatung. Einfache Online-Terminbuchung oder persönlicher Kontakt zu unseren Experten.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #8B4513;
+            --light-brown: #A0522D;
+            --dark-brown: #654321;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --light-gray: #F5F5F5;
+            --gray: #666666;
+            --dark-gray: #333333;
+            --black: #000000;
+            --success: #4CAF50;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-brown);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary-brown);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--dark-gray);
+            transition: var(--transition);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Options */
+        .contact-options {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .option-card {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-brown);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .option-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .option-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--primary-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        .option-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .option-card p {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .option-link {
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .option-link:hover {
+            gap: 15px;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .calendly-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendly-placeholder {
+            text-align: center;
+        }
+
+        .calendly-placeholder h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .calendly-button {
+            background: var(--primary-brown);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: var(--transition);
+            margin: 20px 0;
+        }
+
+        .calendly-button:hover {
+            background: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: white;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-brown);
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--primary-brown);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .form-submit:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .info-content h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .info-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+        }
+
+        .info-details p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Map Section */
+        .map-container {
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .map-placeholder h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--light-gray) 100%);
+            color: var(--dark-gray);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .footer-column a {
+            color: var(--gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-brown);
+            transform: translateX(5px);
+        }
+
+        .footer-column p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: 2px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Facebook - Blau */
+        .social-link:nth-child(1) {
+            background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+        }
+
+        /* Instagram - Gradient */
+        .social-link:nth-child(2) {
+            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+        }
+
+        /* TikTok - Schwarz */
+        .social-link:nth-child(3) {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link img {
+            width: 24px !important;
+            height: 24px !important;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-link:hover img {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+                </a>
+                
+                <nav id="nav-menu">
+                    <a href="index.html">Start</a>
+                    <a href="hairline-leistungen.html">Leistungen</a>
+                    <a href="hairline-praxis.html">Unsere Praxis</a>
+                    <a href="hairline-bewertungen.html">Bewertungen</a>
+                    <a href="hairline-faq.html">FAQ</a>
+                    <a href="hairline-kontakt.html" class="active">Kontakt</a>
+                    <a href="hairline-kontakt.html" class="cta-button">Kostenlose Beratung</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Kontakt aufnehmen</h1>
+            <p>Vereinbaren Sie Ihre kostenlose Erstberatung - schnell und unkompliziert</p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wählen Sie Ihren Weg zu uns</h2>
+                <p>Verschiedene Möglichkeiten für Ihre Kontaktaufnahme</p>
+            </div>
+            <div class="options-grid">
+                <div class="option-card" onclick="scrollToBooking()">
+                    <div class="option-icon">✓</div>
+                    <h3>Online-Terminbuchung</h3>
+                    <p>Buchen Sie Ihren Wunschtermin direkt online über unser Calendly-System</p>
+                    <a href="#booking" class="option-link">Termin buchen →</a>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">☎</div>
+                    <h3>Telefonische Beratung</h3>
+                    <p>Rufen Sie uns an für eine erste telefonische Beratung</p>
+                    <a href="tel:+49000000000" class="option-link">Nummer wird nachgereicht →</a>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">✉</div>
+                    <h3>WhatsApp</h3>
+                    <p>Schreiben Sie uns per WhatsApp für schnelle Antworten</p>
+                    <a href="https://wa.me/49000000000" class="option-link">WhatsApp öffnen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Online-Terminbuchung</h2>
+                <p>Wählen Sie Ihren Wunschtermin für eine kostenlose Erstberatung</p>
+            </div>
+            <div class="calendly-container">
+                <div class="calendly-placeholder">
+                    <h3>Calendly Terminbuchung</h3>
+                    <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 30px;">
+                        Hier wird das Calendly-Widget eingebunden.<br>
+                        Wählen Sie einfach Ihren Wunschtermin aus.
+                    </p>
+                    <a href="#" class="calendly-button">Zur Calendly-Buchung</a>
+                    <p style="margin-top: 30px; font-size: 0.9rem; color: var(--gray);">
+                        Calendly-Link wird nachgereicht<br>
+                        Alternativ: Einbindung über Calendly Embed Code
+                    </p>
+                    <!-- Calendly inline widget begin -->
+                    <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_LINK" style="min-width:320px;height:630px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontaktformular</h2>
+                <p>Oder senden Sie uns eine Nachricht</p>
+            </div>
+            <form class="form-container" onsubmit="handleSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstname">Vorname *</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Nachname *</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="treatment">Gewünschte Behandlung</label>
+                        <select id="treatment" name="treatment">
+                            <option value="">Bitte wählen...</option>
+                            <option value="haartransplantation">Haartransplantation</option>
+                            <option value="barttransplantation">Barttransplantation</option>
+                            <option value="augenbrauen">Augenbrauentransplantation</option>
+                            <option value="prp">PRP-Behandlung</option>
+                            <option value="exorsan">Exorsan</option>
+                            <option value="botox">Botox</option>
+                            <option value="hyaluron">Hyaluron</option>
+                            <option value="unsicher">Noch unsicher</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Ihre Nachricht</label>
+                        <textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-content">
+                    <h3>Kontaktinformationen</h3>
+                    <div class="info-item">
+                        <div class="info-icon">★</div>
+                        <div class="info-details">
+                            <h4>Adresse</h4>
+                            <p>Wird nachgereicht<br>Köln, Nordrhein-Westfalen</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">☎</div>
+                        <div class="info-details">
+                            <h4>Telefon</h4>
+                            <p>Wird nachgereicht<br>Mo-Fr: 9:00 - 18:00 Uhr</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉</div>
+                        <div class="info-details">
+                            <h4>E-Mail</h4>
+                            <p>info@hairline-restoration.de<br>(Wird nachgereicht)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-details">
+                            <h4>Öffnungszeiten</h4>
+                            <p>Mo-Fr: 09:00 - 18:00<br>Sa: 10:00 - 14:00<br>So: Geschlossen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <h4>Standort</h4>
+                        <p>Google Maps wird hier eingebunden</p>
+                        <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
+                            Köln, Nordrhein-Westfalen<br>
+                            Genaue Adresse wird nachgereicht
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Hairline Hair Restoration</h4>
+                    <p>Ihre lizenzierte Fachpraxis für professionelle Haartransplantation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><img src="assets/facebook.svg" alt="Facebook" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                        <a href="#" class="social-link"><img src="assets/instagram.svg" alt="Instagram" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                        <a href="#" class="social-link"><img src="assets/tiktok.svg" alt="TikTok" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Schnellzugriff</h4>
+                    <a href="hairline-leistungen.html">Leistungen</a>
+                    <a href="hairline-praxis.html">Unsere Praxis</a>
+                    <a href="hairline-bewertungen.html">Bewertungen</a>
+                    <a href="hairline-faq.html">FAQ</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontakt</h4>
+                    <p>Adresse wird nachgereicht</p>
+                    <p>Telefon wird nachgereicht</p>
+                    <p>E-Mail wird nachgereicht</p>
+                    <p>Öffnungszeiten werden nachgereicht</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hairline Hair Restoration. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Scroll to booking section
+        function scrollToBooking() {
+            document.getElementById('booking').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would normally send the data to your backend
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.option-card, .info-item');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

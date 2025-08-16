@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewertungen - Hairline Hair Restoration</title>
+    <meta name="description" content="Lesen Sie echte Erfahrungsberichte unserer zufriedenen Patienten. Über 95% Zufriedenheitsrate bei Haartransplantationen.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #8B4513;
+            --light-brown: #A0522D;
+            --dark-brown: #654321;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --light-gray: #F5F5F5;
+            --gray: #666666;
+            --dark-gray: #333333;
+            --black: #000000;
+            --success: #4CAF50;
+            --gold: #FFD700;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-brown);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary-brown);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--dark-gray);
+            transition: var(--transition);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(139, 69, 19, 0.03) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--light-gray), var(--white));
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            color: var(--dark-gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-brown);
+            color: var(--primary-brown);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-brown);
+            border-color: var(--primary-brown);
+            color: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .review-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+        }
+
+        .review-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .review-rating {
+            color: var(--gold);
+        }
+
+        .review-treatment {
+            background: var(--light-gray);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .review-content {
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .review-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--success);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Video Reviews */
+        .video-reviews {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: var(--light-gray);
+            height: 250px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-gray), var(--white));
+        }
+
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-icon {
+            transform: scale(1.1);
+            background: var(--dark-brown);
+        }
+
+        .video-title {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Before/After Section */
+        .results-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .results-notice {
+            background: linear-gradient(135deg, var(--light-gray), var(--white));
+            border-left: 4px solid var(--primary-brown);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .results-notice h3 {
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+        }
+
+        /* Google Reviews Integration */
+        .google-reviews {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .google-widget {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-rating {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .google-score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+
+        .google-stars {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: var(--primary-brown);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--light-gray) 100%);
+            color: var(--dark-gray);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .footer-column a {
+            color: var(--gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-brown);
+            transform: translateX(5px);
+        }
+
+        .footer-column p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: 2px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Facebook - Blau */
+        .social-link:nth-child(1) {
+            background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+        }
+
+        /* Instagram - Gradient */
+        .social-link:nth-child(2) {
+            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+        }
+
+        /* TikTok - Schwarz */
+        .social-link:nth-child(3) {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link img {
+            width: 24px !important;
+            height: 24px !important;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-link:hover img {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 69, 19, 0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+                </a>
+                
+                <nav id="nav-menu">
+                    <a href="index.html">Start</a>
+                    <a href="hairline-leistungen.html">Leistungen</a>
+                    <a href="hairline-praxis.html">Unsere Praxis</a>
+                    <a href="hairline-bewertungen.html" class="active">Bewertungen</a>
+                    <a href="hairline-faq.html">FAQ</a>
+                    <a href="hairline-kontakt.html">Kontakt</a>
+                    <a href="hairline-kontakt.html" class="cta-button">Kostenlose Beratung</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Kundenbewertungen</h1>
+            <p>Echte Erfahrungen unserer zufriedenen Patienten</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2.500+</div>
+                    <div class="stat-label">Zufriedene Patienten</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.9</div>
+                    <div class="stars">★★★★★</div>
+                    <div class="stat-label">Durchschnittliche Bewertung</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Weiterempfehlungsrate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Erfolgreiche Anwuchsrate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Was unsere Patienten sagen</h2>
+                <p>Authentische Erfahrungsberichte aus erster Hand</p>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterReviews('all')">Alle Bewertungen</button>
+                <button class="filter-btn" onclick="filterReviews('haar')">Haartransplantation</button>
+                <button class="filter-btn" onclick="filterReviews('bart')">Barttransplantation</button>
+                <button class="filter-btn" onclick="filterReviews('prp')">PRP-Behandlung</button>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card" data-category="haar">
+                    <div class="review-header">
+                        <div class="review-avatar">MS</div>
+                        <div class="review-info">
+                            <h3>Michael S.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Nach Jahren des Versteckens meiner Geheimratsecken habe ich endlich den Schritt gewagt. Das Team war unglaublich professionell und einfühlsam. Nach 8 Monaten sehe ich 10 Jahre jünger aus! Die Investition hat sich absolut gelohnt."
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="bart">
+                    <div class="review-header">
+                        <div class="review-avatar">AK</div>
+                        <div class="review-info">
+                            <h3>Ali K.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Barttransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Ich hatte immer einen lückenhaften Bart. Die Barttransplantation bei Hairline war die beste Entscheidung! Sehr natürliches Ergebnis, niemand merkt, dass es transplantiert wurde. Top Beratung und Nachsorge!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="haar">
+                    <div class="review-header">
+                        <div class="review-avatar">TW</div>
+                        <div class="review-info">
+                            <h3>Thomas W.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Die Qualität der Behandlung ist erstklassig. Als lizenzierte Praxis in Deutschland fühlte ich mich von Anfang an sicher. Die FUE-Methode war nahezu schmerzfrei und die Ergebnisse übertreffen meine Erwartungen!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="prp">
+                    <div class="review-header">
+                        <div class="review-avatar">SB</div>
+                        <div class="review-info">
+                            <h3>Sandra B.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">PRP-Behandlung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Die PRP-Behandlung hat meine dünnen Haare deutlich gestärkt. Nach 4 Sitzungen ist mein Haar voller und gesünder. Das Team ist super kompetent und die Praxis ist wunderschön - man fühlt sich wie in einer Wellness-Oase!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierte Patientin</span>
+                </div>
+
+                <div class="review-card" data-category="haar">
+                    <div class="review-header">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-info">
+                            <h3>Jürgen M.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Mit 45 Jahren dachte ich, es sei zu spät für volles Haar. Falsch gedacht! Die Ärzte haben eine perfekte, altersgerechte Haarlinie gestaltet. Das Ergebnis sieht so natürlich aus, dass selbst mein Friseur beeindruckt ist!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="haar">
+                    <div class="review-header">
+                        <div class="review-avatar">PL</div>
+                        <div class="review-info">
+                            <h3>Peter L.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Der Unterschied zu Angeboten aus der Türkei: Hier habe ich einen deutschen Ansprechpartner, deutsche Standards und die komplette Nachsorge vor Ort. Das war mir die Mehrkosten absolut wert. Tolles Ergebnis!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="bart">
+                    <div class="review-header">
+                        <div class="review-avatar">MÖ</div>
+                        <div class="review-info">
+                            <h3>Mehmet Ö.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Barttransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Endlich der Vollbart, von dem ich immer geträumt habe! Die türkischen Fachärzte wissen genau, was sie tun. Perfekte Dichte und natürliche Wuchsrichtung. Nach 10 Monaten bin ich überglücklich mit dem Ergebnis."
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+
+                <div class="review-card" data-category="prp">
+                    <div class="review-header">
+                        <div class="review-avatar">KH</div>
+                        <div class="review-info">
+                            <h3>Katharina H.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">PRP + Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Als Frau mit Haarausfall fühlte ich mich hier bestens aufgehoben. Die Kombination aus Transplantation und PRP war goldrichtig. Sehr einfühlsame Beratung und fantastisches Ergebnis. Danke an das ganze Team!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierte Patientin</span>
+                </div>
+
+                <div class="review-card" data-category="haar">
+                    <div class="review-header">
+                        <div class="review-avatar">RK</div>
+                        <div class="review-info">
+                            <h3>Robert K.</h3>
+                            <div class="review-meta">
+                                <span class="review-rating">★★★★★</span>
+                                <span class="review-treatment">Haartransplantation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "3000 Grafts in einer Sitzung - professionell und präzise durchgeführt. Die Heilung verlief problemlos dank der ausgezeichneten Nachsorge. Nach einem Jahr: Volles Haar und neues Selbstbewusstsein!"
+                    </div>
+                    <span class="review-verified">✓ Verifizierter Patient</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Reviews Section -->
+    <section class="video-reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Video-Erfahrungsberichte</h2>
+                <p>Unsere Patienten erzählen ihre Geschichte</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Michael's Transformation - 12 Monate später</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Ali's Barttransplantation Erfahrung</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Thomas berichtet live aus der Praxis</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Sandra's PRP-Behandlung Ergebnisse</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Markus - 6 Monate nach der Behandlung</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Julia's Augenbrauen-Transplantation</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">David berichtet über seine Erfahrung</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Anna's Haaransatz-Korrektur</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶</div>
+                        <div class="video-title">Stefan - Ein Jahr später Interview</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beeindruckende Ergebnisse</h2>
+                <p>Die Verwandlung unserer Patienten</p>
+            </div>
+            <div class="results-notice">
+                <h3>Hinweis zu Vorher-Nachher-Bildern</h3>
+                <p>Gemäß der aktuellen Gesetzgebung dürfen wir keine klassischen Vorher-Nachher-Bilder zeigen. Gerne zeigen wir Ihnen in einem persönlichen Beratungsgespräch dokumentierte Behandlungsergebnisse und Video-Dokumentationen unserer Patienten. Vereinbaren Sie einfach einen kostenlosen Beratungstermin!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Integration -->
+    <section class="google-reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Google Bewertungen</h2>
+                <p>Unabhängige Bewertungen auf Google</p>
+            </div>
+            <div class="google-widget">
+                <div class="google-rating">
+                    <div class="google-score">4.9</div>
+                    <div class="google-stars">★★★★★</div>
+                </div>
+                <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 20px;">Basierend auf 180+ Google Bewertungen</p>
+                <a href="#" class="cta-button">Alle Google Bewertungen ansehen</a>
+                <p style="margin-top: 30px; font-size: 0.9rem; color: var(--gray);">Google Reviews Widget wird nachgereicht</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Werden Sie unser nächster zufriedener Patient</h2>
+            <p>Starten Sie Ihre Transformation mit einer kostenlosen Beratung</p>
+            <a href="hairline-kontakt.html" class="cta-button">Jetzt Termin vereinbaren</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Hairline Hair Restoration</h4>
+                    <p>Ihre lizenzierte Fachpraxis für professionelle Haartransplantation</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><img src="assets/facebook.svg" alt="Facebook" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                        <a href="#" class="social-link"><img src="assets/instagram.svg" alt="Instagram" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                        <a href="#" class="social-link"><img src="assets/tiktok.svg" alt="TikTok" style="width:20px;height:20px;filter:brightness(0) invert(1);"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Schnellzugriff</h4>
+                    <a href="hairline-leistungen.html">Leistungen</a>
+                    <a href="hairline-praxis.html">Unsere Praxis</a>
+                    <a href="hairline-bewertungen.html">Bewertungen</a>
+                    <a href="hairline-faq.html">FAQ</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontakt</h4>
+                    <p>Adresse wird nachgereicht</p>
+                    <p>Telefon wird nachgereicht</p>
+                    <p>E-Mail wird nachgereicht</p>
+                    <p>Öffnungszeiten werden nachgereicht</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hairline Hair Restoration. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Filter Reviews
+        function filterReviews(category) {
+            const reviews = document.querySelectorAll('.review-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide reviews
+            reviews.forEach((review, index) => {
+                if (category === 'all' || review.dataset.category === category) {
+                    review.style.display = 'block';
+                    setTimeout(() => {
+                        review.style.opacity = '1';
+                        review.style.transform = 'translateY(0)';
+                    }, index * 100);
+                } else {
+                    review.style.display = 'none';
+                }
+            });
+        }
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate review cards
+            const elements = document.querySelectorAll('.review-card, .stat-card, .video-card');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+
+            // Animate stat numbers
+            const animateValue = (element, start, end, duration) => {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = value.toLocaleString() + (element.textContent.includes('+') ? '+' : '');
+                    if (element.textContent.includes('%')) element.textContent = value + '%';
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            // Trigger stat animation when visible
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.animated) {
+                        entry.target.animated = true;
+                        const text = entry.target.textContent;
+                        const value = parseInt(text.replace(/[^0-9]/g, ''));
+                        if (!isNaN(value)) {
+                            animateValue(entry.target, 0, value, 2000);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-number').forEach(stat => {
+                statObserver.observe(stat);
+            });
+        });
+    </script>
+</body>
+</html>
