@@ -262,11 +262,16 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 60px;
             align-items: center;
+            justify-items: center;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-text {
+            text-align: center;
         }
 
         .hero-text h1 {
@@ -303,6 +308,8 @@
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             animation: heroSlideIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
         }
@@ -965,9 +972,6 @@
                         <a href="hairline-kontakt.html" class="cta-button">Kostenlose Erstberatung</a>
                         <a href="hairline-leistungen.html" class="secondary-button">Unsere Leistungen</a>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/hero-bild.png" alt="Moderne Hairline Praxis" onerror="this.src='assets/hero-poster.jpg'">
                 </div>
             </div>
         </div>
